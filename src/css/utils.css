@@ -1,0 +1,9 @@
+/*
+  Only for IE11
+*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  body {
+    /*overflow: hidden;*/
+  }
+
+}

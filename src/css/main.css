@@ -1,0 +1,13 @@
+/*
+  Organized according to ITCSS
+  @see https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+*/
+@import "~normalize.css/normalize.css";
+@import "generic.css";
+@import "components.layout.css";
+@import "components.scrollbar.css";
+@import "components.sidebar.css";
+@import "components.next.css";
+@import "objects.slides.css";
+@import "objects.backgroundcover.css";
+@import "utils.css";
