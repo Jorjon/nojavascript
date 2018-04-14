@@ -1,0 +1,53 @@
+-
+    const pl = 'http://via.placeholder.com/';
+    const logo = 'logo.png';
+    const title = 'NoJavascript Company';
+    const slides = [{
+    title: "<strong>This website</strong> doesn't use Javascript",
+    subtitle: "Just HTML + CSS, plus Webpack + Pug.</br>It works great on IE11+ and mobile devices",
+    image: "coding.jpg",
+    name: "About",
+    }, {
+    title: "This is just to <strong>demonstrate</strong> the power of CSS/HTML",
+    subtitle: "Tor users often disable Javascript. This site is <strong>around 200 Kb!</strong>",
+    image: "slide2.jpg",
+    name: "Portfolio",
+    }, {
+    title: "You can contact me at <strong>jorjon(at)jorjon.com</strong>",
+    subtitle: "The source is at https://github.com/Jorjon/nojavascript</br>All images are copyright free",
+    image: "handshake-3382503_1920.jpg",
+    name: "Contact",
+    }];
+html
+    head
+        title=title
+    body(style="transform: scale(0);")
+        each slide, index in slides
+            input.o-slide__button(type='radio' name='slides' id=slide.name checked=index===0)
+        nav.c-topbar(role='navigation')
+            label(for=slides[0].name).c-topbar__logo
+                img(src=logo)
+            //img.c-topbar__logo
+            .c-sidebar__hamburger
+                //- Based on https://codepen.io/erikterwan/pen/EVzeRP
+                input.c-sidebar__hamburger-button(type='checkbox')
+                span.c-sidebar__hamburger-line
+                span.c-sidebar__hamburger-line
+                span.c-sidebar__hamburger-line
+                span.c-sidebar__hamburger-line
+                ul.c-sidebar
+                    .c-sidebar__list
+                        each slide in slides
+                            label.c-sidebar__list-element(for=slide.name) #{slide.name}
+        each slide, index in slides
+            section.o-slide
+                .o-backgroundcover__container.c-slide__image
+                    img.o-backgroundcover__image(src=slide.image width="" height="")
+                .o-slide__content
+                    h1.o-slide__title !{slide.title}
+                    h2.o-slide__subtitle !{slide.subtitle}
+                .c-next__animation
+                    label.c-next(for=index === slides.length - 1 ? slides[0].name : slides[index + 1].name)
+        .c-scrollbar
+            each slide in slides
+                label.c-scrollbar__item(for=slide.name)
